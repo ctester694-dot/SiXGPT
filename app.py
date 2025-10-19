@@ -18,7 +18,7 @@ bn_lang = next(lang for lang in installed_languages if lang.code == "bn")
 
 @app.route('/')
 def home():
-    return "🌍 English ↔ Bengali Translator Server Running!"
+    return "🌍 SiXGPT Phase 2 is Running!"
 
 # English -> Bengali
 @app.route('/en-to-bn', methods=['POST'])
@@ -31,16 +31,7 @@ def en_to_bn():
     except Exception as e:
         return jsonify({"error": str(e)})
 
-# Bengali -> English
-@app.route('/bn-to-en', methods=['POST'])
-def bn_to_en():
-    data = request.get_json()
-    text = data.get("text", "")
-    try:
-        translation = bn_lang.get_translation(en_lang).translate(text)
-        return jsonify({"translatedText": translation})
-    except Exception as e:
-        return jsonify({"error": str(e)})
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
