@@ -18,7 +18,7 @@ bn_lang = next(lang for lang in installed_languages if lang.code == "bn")
 
 @app.route('/')
 def home():
-    return "🌍 SiXGPT Phase 2 is Running!"
+    return "🌍 SiXGPT Phase 2 is Running! "
 
 # English -> Bengali
 @app.route('/en-to-bn', methods=['POST'])
